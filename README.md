@@ -61,3 +61,7 @@ Need the Japanese documentation? Check [README.ja.md](./README.ja.md).
 ## License
 
 [MIT](./LICENSE)
+
+## Acknowledgements
+
+This workflow draws inspiration from the open-source specification-driven tooling at [gotalab/cc-sdd](https://github.com/gotalab/cc-sdd). Many thanks to the maintainers and contributors for sharing their approach.
