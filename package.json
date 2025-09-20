@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "test": "node --test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "scripts/bump-version.sh"
   },
   "keywords": [
     "codex",
