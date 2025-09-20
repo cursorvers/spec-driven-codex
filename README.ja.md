@@ -41,6 +41,10 @@ codex
 | `npx spec-driven-codex status` | 現在の仕様状態を確認 | `.sdd/target-spec.txt` を参照し、生成済みファイルや他の spec を一覧表示 |
 | `npx spec-driven-codex clean` | 作業中の一時成果物を掃除 | `.sdd/specs` から `archives/` 以外を削除し、`target-spec.txt` をリセット |
 
+### Codex CLIの進行について
+
+Codex CLIはコマンドを実行する前に、これから行う作業計画だけをコンソールに表示したり、承認を求めて入力待ちになることがあります。その場合は `ok` などの承認メッセージを入力して Enter を押すと、処理が続行されます。
+
 ## 📚 Codex CLI で使う `/sdd-***` コマンド
 
 `npx spec-driven-codex init` を実行すると、Codex CLI で以下のプロンプトが利用できるようになります。上から順に進めることで、仕様駆動開発の流れを自然に踏めます。

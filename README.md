@@ -36,6 +36,10 @@ npx spec-driven-codex init --locale ja
 | `npx spec-driven-codex status` | Inspect progress | Shows the active specification, generated files, and other specs stored under `.sdd/specs`. |
 | `npx spec-driven-codex clean` | Reset working specs | Removes non-archived spec folders and clears `target-spec.txt` without touching archives. |
 
+### Working with Codex CLI
+
+Codex CLI occasionally prints a high-level plan to the console before it actually runs the command. When that happens—or when the CLI explicitly asks for approval—simply type `ok` (or another affirmative response) and press Enter to let the flow continue.
+
 ## Generated Structure
 
 ```
