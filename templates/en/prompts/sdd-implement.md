@@ -3,12 +3,12 @@
 Execute the planned tasks, keep tests green, and document outcomes.
 
 ## Step 1: Implementation Loop
-For each task:
+Work through the entire task list in order. For each task:
 1. Write or update tests (RED).
 2. Implement the minimal code to pass them (GREEN).
 3. Refactor for clarity while keeping tests passing (REFACTOR).
 
-Record progress in commit messages and keep changes small and reviewable.
+Record progress in commit messages and keep changes small and reviewable. Do not skip items—every task in `tasks.md` should reach "done" before completing this phase.
 
 ## Step 2: Quality Checklist
 Before declaring the task complete, ensure:
