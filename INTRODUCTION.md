@@ -1,145 +1,157 @@
-# INTRODUCTION.md
+# INTRODUCTION.md (English)
 
-## spec-driven-codex：仕様駆動開発を、今すぐ始める
+## spec-driven-codex: Start Specification-Driven Development Today
 
-`spec-driven-codex` は、Codex CLI に仕様駆動開発（SDD: Specification-Driven Development）の力をもたらすシンプルなフレームワークです。
-複雑な設定は不要。
-`npx spec-driven-codex init` を実行するだけで、体系的な開発プロセスがあなたのプロジェクトに導入されます。
+`spec-driven-codex` is a simple framework that brings the power of Specification-Driven Development (SDD) to Codex CLI.
 
-## なぜ仕様駆動開発なのか
+No complex configuration needed.
 
-AIペアプログラミングが当たり前になった今、新たな課題が生まれています。
+Just run `npx spec-driven-codex init` and a systematic development process will be integrated into your project.
 
-「AIに任せすぎて、何を作っているのか見失ってしまう」
-「要件が曖昧なまま実装に入り、後から大きな手戻りが発生する」
-——そんな経験はありませんか？
+## Why Specification-Driven Development?
 
-仕様駆動開発は、この問題に明確な答えを提供します。
+AI pair programming has become commonplace, but it brings new challenges.
 
-要件定義→設計→実装という自然な流れに沿って、AIと人間が適切に協業する。
+"Relying too much on AI, losing sight of what we're building"
 
-各フェーズで人間の承認を挟むことで、方向性のブレを防ぎながら、AIの生産性を最大限に活用できます。
+"Starting implementation with vague requirements, causing major rework later"
 
-## 6つのステップで進む開発フロー
+— Sound familiar?
 
-### 1. **Steering（舵取り）** `/sdd-steering`
-既存プロジェクトの全体像を把握し、開発の土台となる3つのドキュメントを自動生成：
-- プロダクト概要（何を作っているか）
-- 技術スタック（どう作っているか）
-- プロジェクト構造（どこに何があるか）
+Specification-driven development provides a clear answer to these problems.
 
-### 2. **Requirements（要件定義）** `/sdd-requirements`
-機能の要件と受入基準を明確化。「完成」の定義が曖昧になることを防ぎます。
+Following the natural flow of requirements → design → implementation, humans and AI collaborate appropriately.
 
-### 3. **Design（設計）** `/sdd-design`
-アーキテクチャ、データフロー、エラーハンドリングを設計。既存コードとの統合方法も明記。
+By inserting human approval at each phase, you can maximize AI productivity while preventing directional drift.
 
-### 4. **Tasks（タスク分解）** `/sdd-tasks`
-実装可能な粒度にタスクを分解。チェックリスト形式で進捗が一目瞭然。
+## Development Flow in 6 Steps
 
-### 5. **Implementation（実装）** `/sdd-implement`
-タスクを順番に実行。テストファーストで品質を担保しながら進行。
+### 1. **Steering** `/sdd-steering`
+Understand the overall picture of existing projects and automatically generate three foundational documents:
+- Product overview (what we're building)
+- Technology stack (how we're building it)
+- Project structure (where everything is)
 
-### 6. **Archive（アーカイブ）** `/sdd-archive`
-完了した仕様を日付付きでアーカイブ。知識の蓄積と再利用を促進。
+### 2. **Requirements** `/sdd-requirements`
+Clarify feature requirements and acceptance criteria. Prevent ambiguous definitions of "done."
 
-## 導入は驚くほど簡単
+### 3. **Design** `/sdd-design`
+Design architecture, data flow, and error handling. Clearly document integration with existing code.
+
+### 4. **Tasks** `/sdd-tasks`
+Break down into implementable task units. Progress is clear at a glance with checklist format.
+
+### 5. **Implementation** `/sdd-implement`
+Execute tasks in order. Progress with test-first approach to ensure quality.
+
+### 6. **Archive** `/sdd-archive`
+Archive completed specifications with dates. Promote knowledge accumulation and reuse.
+
+## Surprisingly Simple Setup
 
 ```bash
-# 英語版（デフォルト）
+# English version (default)
 npx spec-driven-codex init
 
-# 日本語版
+# Japanese version
 npx spec-driven-codex init --locale ja
 ```
 
-たった1コマンドで以下が自動的に整います：
-- `.sdd/` ディレクトリ構造の生成
-- Codex CLI用プロンプト（6個）の配置
-- 機能説明テンプレートの作成
+With just one command, the following is automatically prepared:
+- Generation of `.sdd/` directory structure
+- Placement of Codex CLI prompts (6 files)
+- Creation of feature description templates
 
-既存のプロジェクトでも、新規プロジェクトでも、すぐに始められます。
+Works immediately with both existing and new projects.
 
-## チームで使う、個人で使う
+## For Teams, For Individuals
 
-### スタートアップ・小規模チーム
-「仕様書を書く時間がない」という悩みを解決。
-開発しながら自然に仕様書が生成され、後からジョインしたメンバーも文脈を理解しやすくなります。
+### Startups & Small Teams
+Solves the "no time to write specs" problem.
 
-### エンタープライズ開発
-要件→設計→実装の承認フローが組み込まれているため、ガバナンスを効かせながら開発速度を維持。
+Specifications are naturally generated while developing, making it easier for new team members to understand context.
 
-### 個人開発者
-「作りながら考える」スタイルから「考えてから作る」スタイルへ。
-未来の自分のために、今の思考を`.sdd/`に残しておけます。
+### Enterprise Development
+With built-in approval flow from requirements → design → implementation, maintain development speed while ensuring governance.
 
-## 実際の開発体験
+Can also be used as audit trail.
+
+### Individual Developers
+Shift from "think while building" to "think before building" style.
+
+Leave today's thoughts in `.sdd/` for your future self.
+
+## Real Development Experience
 
 ```bash
-# プロジェクトを理解させる（既存プロジェクトの場合）
+# Understanding the project (for existing projects)
 codex
 > /sdd-steering
 
-# 新機能の説明を書く
-echo "ユーザー認証機能を追加したい" > .sdd/description.md
+# Write new feature description
+echo "Add user authentication feature" > .sdd/description.md
 
-# 開発フローを進める
-> /sdd-requirements  # 要件を詰める
-> /sdd-design       # 設計する
-> /sdd-tasks        # タスクに分解
-> /sdd-implement    # 実装する
-> /sdd-archive      # 完了！
+# Progress through development flow
+> /sdd-requirements  # Define requirements
+> /sdd-design       # Create design
+> /sdd-tasks        # Break into tasks
+> /sdd-implement    # Implement
+> /sdd-archive      # Complete!
 ```
 
-Codex CLIが各ステップで何をすべきか案内してくれるため、迷うことはありません。承認が必要な場面では入力を求められるので、`ok`と入力して進めます。
+Codex CLI guides you through each step, so you won't get lost.
 
-## 成果物はすべて`.sdd/`に
+When approval is needed, you'll be prompted for input — just type `ok` to proceed.
+
+## All Artifacts in `.sdd/`
 
 ```
 .sdd/
-├── description.md        # 今回作りたいもの
-├── target-spec.txt      # 作業中のspec名
-├── steering/            # プロジェクトの記憶
-│   ├── product.md      # 製品情報
-│   ├── tech.md         # 技術情報
-│   └── structure.md    # 構造情報
-└── specs/              # 各機能の仕様
-    ├── user-auth/      # 例：認証機能
+├── description.md        # What to build this time
+├── target-spec.txt      # Working spec name
+├── steering/            # Project memory
+│   ├── product.md      # Product information
+│   ├── tech.md         # Technical information
+│   └── structure.md    # Structure information
+└── specs/              # Specifications for each feature
+    ├── user-auth/      # Example: Auth feature
     │   ├── requirements.md
     │   ├── design.md
     │   └── tasks.md
-    └── archives/       # 完了済み仕様
+    └── archives/       # Completed specs
 ```
 
-仕様と実装が同じリポジトリで管理され、Gitによるバージョン管理も自然に行えます。
+Specifications and implementation are managed in the same repository, naturally enabling Git version control.
 
-## 国際チームでも安心
+## Safe for International Teams
 
-英語圏の開発者も、日本語を使うチームも、同じ構造で仕様を管理できます。
+English-speaking developers and Japanese-speaking teams can manage specifications with the same structure.
 
-`--locale ja`オプションで、プロンプトとテンプレートが日本語になるため、言語の壁を越えたコラボレーションが可能です。
+With the `--locale ja` option, prompts and templates become Japanese, enabling collaboration across language barriers.
 
-## 今すぐ始める理由
+## Why Start Now
 
-- **学習コスト最小**: 複雑な設定やツールの学習は不要
-- **既存資産を活かす**: 今のプロジェクトにそのまま導入可能
-- **段階的導入**: 小さな機能から試して、徐々に拡大
-- **オープンソース**: MITライセンスで自由に利用・改変
+- **Minimal learning cost**: No complex configuration or tool learning required
+- **Leverage existing assets**: Can be introduced directly to current projects
+- **Gradual adoption**: Start with small features, expand gradually
+- **Open source**: Free to use and modify under MIT license
 
-## まとめ
+## Summary
 
-`spec-driven-codex`は、仕様駆動開発という確立された手法を、現代のAIペアプログラミング環境に最適化したツールです。
+`spec-driven-codex` is a tool that optimizes the established methodology of specification-driven development for modern AI pair programming environments.
 
-仕様が先、実装が後。このシンプルな原則が、あなたの開発をより予測可能で、より品質の高いものに変えていきます。
+Specifications first, implementation second.
+
+This simple principle transforms your development into something more predictable and higher quality.
 
 ```bash
 npx spec-driven-codex init
 ```
 
-今すぐこのコマンドを実行して、新しい開発体験を始めてみませんか？
+Why not run this command right now and start a new development experience?
 
 ---
 
-**リポジトリ**: [github.com/your-username/spec-driven-codex](https://github.com/your-username/spec-driven-codex)
-**ライセンス**: MIT
-**謝辞**: 仕様駆動開発のコンセプトは[AWS Kiro](https://kiro.dev)および[gotalab/cc-sdd](https://github.com/gotalab/cc-sdd)から多くの示唆を得ています。
+**Repository**: [github.com/your-username/spec-driven-codex](https://github.com/your-username/spec-driven-codex)
+**License**: MIT
+**Acknowledgments**: The concept of specification-driven development draws significant inspiration from [AWS Kiro](https://kiro.dev) and [gotalab/cc-sdd](https://github.com/gotalab/cc-sdd).
