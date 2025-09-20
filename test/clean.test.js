@@ -30,6 +30,7 @@ test('clean removes non-archive specs and resets target spec', async () => {
   });
 
   assert.deepEqual(result.removedSpecs.sort(), ['feature-a', 'feature-b']);
+  assert.equal(result.locale, 'en');
   const remaining = await fs.readdir(path.join(sddDir, 'specs'));
   assert.deepEqual(remaining, ['archives']);
   const target = await fs.readFile(path.join(sddDir, 'target-spec.txt'), 'utf8');
@@ -48,4 +49,26 @@ test('clean handles missing .sdd directory gracefully', async () => {
   });
 
   assert.equal(result.exists, false);
+  assert.equal(result.locale, 'en');
+});
+
+test('clean supports Japanese locale output', async () => {
+  const projectDir = await createTempDir('sdc-clean-project-ja-');
+  const sddDir = path.join(projectDir, '.sdd');
+  await fs.ensureDir(path.join(sddDir, 'specs', 'temp'));
+
+  const logs = [];
+  const result = await clean({
+    cwd: projectDir,
+    locale: 'ja',
+    logger: {
+      info: (msg) => logs.push(msg),
+      warn: (msg) => logs.push(msg),
+      error: (msg) => logs.push(msg),
+    },
+  });
+
+  assert.equal(result.locale, 'ja');
+  assert.ok(result.removedSpecs.includes('temp'));
+  assert.ok(logs.some((msg) => typeof msg === 'string' && msg.includes('target-spec.txt を初期化しました')));
 });

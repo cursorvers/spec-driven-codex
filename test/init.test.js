@@ -24,7 +24,10 @@ test('init creates .sdd structure and copies prompts', async () => {
   });
 
   assert.ok(result);
+  assert.equal(result.locale, 'en');
   assert.ok(await fs.pathExists(path.join(projectDir, '.sdd', 'description.md')));
+  const description = await fs.readFile(path.join(projectDir, '.sdd', 'description.md'), 'utf8');
+  assert.match(description, /Feature Request/);
   const readmePath = path.join(projectDir, '.sdd', 'README.md');
   assert.ok(await fs.pathExists(readmePath));
   const readmeContent = await fs.readFile(readmePath, 'utf8');
@@ -64,5 +67,29 @@ test('init asks before overwriting existing prompts', async () => {
   assert.equal(content, 'old-content');
   assert.equal(result.prompts.skipped.length, 1);
   assert.equal(result.created.sddReadme, true);
+  assert.equal(result.locale, 'en');
   assert.ok(await fs.pathExists(path.join(projectDir, '.sdd', 'README.md')));
+});
+
+test('init supports Japanese locale', async () => {
+  const projectDir = await createTempDir('sdc-init-project-ja-');
+  const homeDir = await createTempDir('sdc-init-home-ja-');
+
+  const result = await init({
+    cwd: projectDir,
+    homeDir,
+    locale: 'ja',
+    templatesRoot: path.join(process.cwd(), 'templates'),
+    promptForOverwrite: async () => true,
+    logger: { info() {}, warn() {}, error() {} },
+  });
+
+  assert.equal(result.locale, 'ja');
+  const description = await fs.readFile(path.join(projectDir, '.sdd', 'description.md'), 'utf8');
+  assert.match(description, /実装したい機能/);
+  const readmeContent = await fs.readFile(path.join(projectDir, '.sdd', 'README.md'), 'utf8');
+  assert.match(readmeContent, /コマンド/);
+  const promptDir = path.join(homeDir, '.codex', 'prompts');
+  const promptFiles = await fs.readdir(promptDir);
+  assert.deepEqual(new Set(promptFiles).size, 6);
 });

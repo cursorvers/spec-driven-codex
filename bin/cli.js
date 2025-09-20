@@ -10,9 +10,12 @@ async function main() {
 
   console.log(chalk.cyan('🚀 spec-driven-codex'));
 
+  const localeOption = (argv.locale ?? argv.lang ?? '').toString().trim().toLowerCase();
+  const locale = localeOption || undefined;
+
   switch (command) {
     case 'init':
-      await init();
+      await init({ locale });
       break;
     case 'status':
       await status();
@@ -28,10 +31,10 @@ async function main() {
 
 function printHelp() {
   console.log(chalk.yellow(`
-使い方:
-  npx spec-driven-codex init    # 初期化
-  npx spec-driven-codex status  # 状態確認
-  npx spec-driven-codex clean   # クリーンアップ
+Usage:
+  npx spec-driven-codex init [--locale ja]    # Initialize SDD assets
+  npx spec-driven-codex status [--locale ja]  # Show current spec progress
+  npx spec-driven-codex clean [--locale ja]   # Remove working specs and reset target
 `));
 }
 
