@@ -1,6 +1,6 @@
 {
   "name": "spec-driven-codex",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "シンプルな仕様駆動開発フレームワーク for Codex CLI",
   "main": "lib/index.js",
   "bin": {
