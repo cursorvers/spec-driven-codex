@@ -2,7 +2,7 @@
 
 const minimist = require('minimist');
 const chalk = require('chalk');
-const { init, status, clean } = require('../lib/commands');
+const { init } = require('../lib/commands');
 
 async function main() {
   const argv = minimist(process.argv.slice(2));
@@ -13,28 +13,18 @@ async function main() {
   const localeOption = (argv.locale ?? argv.lang ?? '').toString().trim().toLowerCase();
   const locale = localeOption || undefined;
 
-  switch (command) {
-    case 'init':
-      await init({ locale });
-      break;
-    case 'status':
-      await status();
-      break;
-    case 'clean':
-      await clean();
-      break;
-    default:
-      printHelp();
-      break;
+  if (command === 'init' || !command) {
+    await init({ locale });
+    return;
   }
+
+  printHelp();
 }
 
 function printHelp() {
   console.log(chalk.yellow(`
 Usage:
-  npx spec-driven-codex init [--locale ja]    # Initialize SDD assets
-  npx spec-driven-codex status [--locale ja]  # Show current spec progress
-  npx spec-driven-codex clean [--locale ja]   # Remove working specs and reset target
+  npx spec-driven-codex init [--locale ja]
 `));
 }
 

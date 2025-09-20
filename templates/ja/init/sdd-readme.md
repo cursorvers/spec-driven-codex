@@ -8,5 +8,3 @@
 4. `/sdd-tasks` — 作業タスクを分解し、責務と順序を決定します。
 5. `/sdd-implement` — 実装とテストを進め、要件を満たすコードを完成させます。
 6. `/sdd-archive` — まとめと振り返りを記録し、成果を共有します。
-
-> `spec-driven-codex status` で現在の進捗を確認し、必要に応じて `spec-driven-codex clean` で作業領域をリセットできます。

@@ -8,5 +8,3 @@ Run the Codex CLI prompts in the following order:
 4. `/sdd-tasks` — Break the design into actionable tasks with clear ownership.
 5. `/sdd-implement` — Implement and test the solution according to the agreed tasks.
 6. `/sdd-archive` — Capture outcomes, lessons learned, and next steps.
-
-> Use `spec-driven-codex status` to see progress, and `spec-driven-codex clean` to reset the working area when needed.

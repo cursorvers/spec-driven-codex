@@ -10,10 +10,10 @@ npx spec-driven-codex init --locale ja
 
 ## ✨ 特徴
 
-- **シンプル**: `init` / `status` / `clean` の3コマンドだけで導入からメンテナンスまで完結
+- **シンプル**: `init` コマンド一つでセットアップ完了
 - **日本語対応**: CLIメッセージとテンプレートがすべて日本語
 - **Codex CLI連携**: `~/.codex/prompts` に SDD フロー用プロンプトを自動配置
-- **状態管理**: `.sdd` 配下の状態をいつでも `status` で確認可能
+- **状態管理**: `.sdd` 配下にフロー成果物を体系的に保存
 
 ## 🚀 クイックスタート
 
@@ -38,8 +38,6 @@ codex
 | コマンド | 説明 | おもな処理 |
 | --- | --- | --- |
 | `npx spec-driven-codex init [--locale ja]` | プロジェクト初期化 | `.sdd` 構造の生成、説明テンプレート作成、Codex プロンプト配布（既存ファイルは上書き可否を確認） |
-| `npx spec-driven-codex status` | 現在の仕様状態を確認 | `.sdd/target-spec.txt` を参照し、生成済みファイルや他の spec を一覧表示 |
-| `npx spec-driven-codex clean` | 作業中の一時成果物を掃除 | `.sdd/specs` から `archives/` 以外を削除し、`target-spec.txt` をリセット |
 
 ### Codex CLIの進行について
 

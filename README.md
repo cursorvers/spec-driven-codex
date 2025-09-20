@@ -2,9 +2,9 @@
 
 A lightweight, specification-driven development workflow tailored for the Codex CLI. Run `npx spec-driven-codex init` to scaffold the `.sdd` workspace and install Codex prompts that guide you from discovery to delivery.
 
-- **Three commands only** – `init`, `status`, `clean`
+- **Single command setup** – `init` bootstraps everything you need
 - **Codex-ready prompts** – English by default, Japanese with `--locale ja`
-- **Always in sync** – Track the active specification and generated artifacts at any time
+- **Always in sync** – Spec artifacts live under `.sdd/` for the entire flow
 
 ## Quick Start
 
@@ -28,13 +28,11 @@ Pass `--locale ja` to `init` if you prefer Japanese templates and prompts:
 npx spec-driven-codex init --locale ja
 ```
 
-## CLI Commands
+## CLI Command
 
-| Command | Description | What it does |
-| --- | --- | --- |
-| `npx spec-driven-codex init [--locale ja]` | Initialize the SDD workspace | Creates `.sdd/` scaffolding, description template, localized README, and installs Codex prompts (with overwrite confirmation). |
-| `npx spec-driven-codex status` | Inspect progress | Shows the active specification, generated files, and other specs stored under `.sdd/specs`. |
-| `npx spec-driven-codex clean` | Reset working specs | Removes non-archived spec folders and clears `target-spec.txt` without touching archives. |
+| Command | Description |
+| --- | --- |
+| `npx spec-driven-codex init [--locale ja]` | Creates `.sdd/` scaffolding, localized templates, and installs Codex prompts (with overwrite confirmation). |
 
 ### Working with Codex CLI
 
