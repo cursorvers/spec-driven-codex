@@ -1,0 +1,8 @@
+.git
+.gitignore
+*.log
+node_modules/
+test/
+.DS_Store
+.eslintrc
+.prettierrc

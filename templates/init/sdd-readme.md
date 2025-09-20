@@ -1,0 +1,12 @@
+# Codex SDD フロー
+
+次の順番で Codex CLI のコマンドを実行してください。
+
+1. `/sdd-steering` — プロジェクトの背景とゴールを整理します。
+2. `/sdd-requirements` — 実装対象の要件と受け入れ基準を明文化します。
+3. `/sdd-design` — 実装方針や技術的な設計を固めます。
+4. `/sdd-tasks` — 作業タスクを分解し、責務と順序を決定します。
+5. `/sdd-implement` — 実装とテストを進め、要件を満たすコードを完成させます。
+6. `/sdd-archive` — まとめと振り返りを記録し、成果を共有します。
+
+> `spec-driven-codex status` で現在の進捗を確認し、必要に応じて `spec-driven-codex clean` で作業領域をリセットできます。
