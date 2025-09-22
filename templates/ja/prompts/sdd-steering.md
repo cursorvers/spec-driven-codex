@@ -111,7 +111,7 @@
 ### 3. Project Structure (`.sdd/steering/structure.md`)
 
 #### 新規作成の場合：
-```markdown
+````markdown
 # Project Structure
 
 ## ルートディレクトリ構成
@@ -132,7 +132,7 @@
 ## 主要な設計原則
 - [原則1]：[説明]
 - [原則2]：[説明]
-```
+````
 
 #### 更新の場合：
 構造的な変更のみ反映：
