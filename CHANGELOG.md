@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] - 2025-09-23
+### Changed
+- Documented that `.sdd/description.md` must be updated before running `/sdd-requirements` across README guides and distributed templates.
+
 ## [0.1.4] - 2025-09-23
 ### Added
 - Introduced the `upgrade` command to force-refresh Codex prompts and the `.sdd/README.md` using the active locale.
@@ -14,4 +18,3 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 - Retired the interactive overwrite prompt utility now that `init` is non-destructive.
-

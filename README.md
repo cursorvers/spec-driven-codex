@@ -48,7 +48,7 @@ npx spec-driven-codex upgrade
 Once the workspace is initialized, run the Codex CLI prompts in sequence to progress through the specification-driven flow:
 
 - `/sdd-steering` — Capture product context, stakeholders, and risks.
-- `/sdd-requirements` — Define requirements and acceptance criteria.
+- `/sdd-requirements` — Define requirements and acceptance criteria. Update `.sdd/description.md` with the problem and feature summary before running this prompt so the requirements stay grounded in the latest context.
 - `/sdd-design` — Document architecture and implementation strategy.
 - `/sdd-tasks` — Break the design into actionable tasks.
 - `/sdd-implement` — Implement every task with tests and refactors.
