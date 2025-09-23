@@ -8,3 +8,5 @@ Run the Codex CLI prompts in the following order:
 4. `/sdd-tasks` — Break the design into actionable tasks with clear ownership.
 5. `/sdd-implement` — Implement and test the solution according to the agreed tasks.
 6. `/sdd-archive` — Capture outcomes, lessons learned, and next steps.
+
+Need to refresh the prompts or this guide later? Re-run `npx spec-driven-codex init` (to keep existing prompt customisations) or use `npx spec-driven-codex upgrade` to force-install the latest templates.

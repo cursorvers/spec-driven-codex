@@ -19,7 +19,6 @@ test('init creates .sdd structure and copies prompts', async () => {
     cwd: projectDir,
     homeDir,
     templatesRoot: path.join(process.cwd(), 'templates'),
-    promptForOverwrite: async () => true,
     logger: { info() {}, warn() {}, error() {} },
   });
 
@@ -42,7 +41,7 @@ test('init creates .sdd structure and copies prompts', async () => {
   assert.equal(result.created.sddReadme, true);
 });
 
-test('init asks before overwriting existing prompts', async () => {
+test('init skips existing prompts without overwriting', async () => {
   const projectDir = await createTempDir('sdc-init-project-');
   const homeDir = await createTempDir('sdc-init-home-');
   const codexPromptsDir = path.join(homeDir, '.codex', 'prompts');
@@ -50,25 +49,72 @@ test('init asks before overwriting existing prompts', async () => {
   const existingPath = path.join(codexPromptsDir, 'sdd-steering.md');
   await fs.writeFile(existingPath, 'old-content');
 
-  const decisions = [];
   const result = await init({
     cwd: projectDir,
     homeDir,
     templatesRoot: path.join(process.cwd(), 'templates'),
-    promptForOverwrite: async (file) => {
-      decisions.push(path.basename(file));
-      return false;
-    },
     logger: { info() {}, warn() {}, error() {} },
   });
 
-  assert.deepEqual(decisions, ['sdd-steering.md']);
   const content = await fs.readFile(existingPath, 'utf8');
   assert.equal(content, 'old-content');
   assert.equal(result.prompts.skipped.length, 1);
   assert.equal(result.created.sddReadme, true);
   assert.equal(result.locale, 'en');
   assert.ok(await fs.pathExists(path.join(projectDir, '.sdd', 'README.md')));
+});
+
+test('init skips all existing prompts without modifying them', async () => {
+  const projectDir = await createTempDir('sdc-init-project-multi-');
+  const homeDir = await createTempDir('sdc-init-home-multi-');
+  const codexPromptsDir = path.join(homeDir, '.codex', 'prompts');
+  await fs.ensureDir(codexPromptsDir);
+
+  const existingFiles = ['sdd-steering.md', 'sdd-archive.md'];
+  for (const name of existingFiles) {
+    await fs.writeFile(path.join(codexPromptsDir, name), 'old-content');
+  }
+
+  const result = await init({
+    cwd: projectDir,
+    homeDir,
+    templatesRoot: path.join(process.cwd(), 'templates'),
+    logger: { info() {}, warn() {}, error() {} },
+  });
+
+  for (const name of existingFiles) {
+    const content = await fs.readFile(path.join(codexPromptsDir, name), 'utf8');
+    assert.equal(content, 'old-content');
+  }
+  assert.deepEqual(new Set(result.prompts.skipped), new Set(existingFiles));
+});
+
+test('init overwrites .sdd README on rerun', async () => {
+  const projectDir = await createTempDir('sdc-init-project-rerun-');
+  const homeDir = await createTempDir('sdc-init-home-rerun-');
+  const templateRoot = path.join(process.cwd(), 'templates');
+  const templateReadme = await fs.readFile(path.join(templateRoot, 'en', 'init', 'sdd-readme.md'), 'utf8');
+
+  await init({
+    cwd: projectDir,
+    homeDir,
+    templatesRoot: templateRoot,
+    logger: { info() {}, warn() {}, error() {} },
+  });
+
+  const readmePath = path.join(projectDir, '.sdd', 'README.md');
+  await fs.writeFile(readmePath, 'custom-content');
+
+  const result = await init({
+    cwd: projectDir,
+    homeDir,
+    templatesRoot: templateRoot,
+    logger: { info() {}, warn() {}, error() {} },
+  });
+
+  const updated = await fs.readFile(readmePath, 'utf8');
+  assert.equal(updated, templateReadme);
+  assert.equal(result.created.sddReadme, false);
 });
 
 test('init supports Japanese locale', async () => {
@@ -80,7 +126,6 @@ test('init supports Japanese locale', async () => {
     homeDir,
     locale: 'ja',
     templatesRoot: path.join(process.cwd(), 'templates'),
-    promptForOverwrite: async () => true,
     logger: { info() {}, warn() {}, error() {} },
   });
 

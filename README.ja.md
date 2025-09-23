@@ -1,6 +1,6 @@
 # spec-driven-codex
 
-シンプルで強力な、Codex CLI用の仕様駆動開発フレームワークです。デフォルトは英語テンプレートですが、`--locale ja` オプションで日本語版をインストールできます。
+シンプルで強力な、Codex CLI用の仕様駆動開発フレームワークです。デフォルトは英語テンプレートですが、`--locale ja` オプションで日本語版をインストールできます。テンプレートを最新化したいときは `npx spec-driven-codex upgrade` を実行してください。
 
 ```bash
 npx spec-driven-codex init --locale ja
@@ -11,7 +11,8 @@ npx spec-driven-codex init --locale ja
 ## ✨ 特徴
 
 - **シンプル**: `init` コマンド一つでセットアップ完了
-- **日本語対応**: CLIメッセージとテンプレートがすべて日本語
+- **既存プロンプト保持**: `init` 再実行時も既存プロンプトは上書きされず、`.sdd/README.md` は毎回最新化
+- **ワンステップ更新**: `upgrade` コマンドで最新プロンプトと `.sdd/README.md` を強制コピー
 - **Codex CLI連携**: `~/.codex/prompts` に SDD フロー用プロンプトを自動配置
 - **状態管理**: `.sdd` 配下にフロー成果物を体系的に保存
 
@@ -31,11 +32,18 @@ codex
 > /sdd-archive
 ```
 
+テンプレートを後から更新したい場合は次を実行します。
+
+```bash
+npx spec-driven-codex upgrade --locale ja
+```
+
 ## 🛠 コマンド
 
 | コマンド | 説明 |
 | --- | --- |
-| `npx spec-driven-codex init [--locale ja]` | `.sdd` 構造の生成、説明テンプレート作成、Codex プロンプト配布（既存ファイルは上書き可否を確認） |
+| `npx spec-driven-codex init [--locale ja]` | `.sdd` 構造の生成、説明テンプレート作成、Codex プロンプト配布（既存プロンプトは保持しつつ `.sdd/README.md` を常に更新） |
+| `npx spec-driven-codex upgrade [--locale ja]` | `~/.codex/prompts` に最新テンプレートを強制コピーし、`.sdd/README.md` も最新化（確認なしで上書き） |
 
 ## Codex CLIの進行について
 
@@ -52,9 +60,9 @@ Codex CLIはコマンドを実行する前に、これから行う作業計画�
 - `/sdd-implement` — タスクを順番に実行し、テスト・リファクタリングも含めて完了させます。
 - `/sdd-archive` — 完成した成果と振り返りをアーカイブし、将来の参照に備えます。
 
-### プロンプトの上書き確認
+### プロンプトの再インストール
 
-`init` 実行時に `~/.codex/prompts` に同名ファイルが存在すると、ファイルごとに `y/n` で上書きするか尋ねます。`y` を選ぶとテンプレートで置き換え、`n` を選ぶと既存ファイルをそのまま保持します。
+`init` を再実行すると既存の Codex プロンプトはスキップされますが、`.sdd/README.md` は常にテンプレートで更新されます。最新テンプレートへ入れ替えたい場合は `npx spec-driven-codex upgrade` を利用してください。`upgrade` は確認ダイアログなしでプロンプトと `.sdd/README.md` をすべて上書きします。
 
 ## 📂 生成される構造
 

@@ -2,7 +2,7 @@
 
 const minimist = require('minimist');
 const chalk = require('chalk');
-const { init } = require('../lib/commands');
+const { init, upgrade } = require('../lib/commands');
 
 async function main() {
   const argv = minimist(process.argv.slice(2));
@@ -18,6 +18,11 @@ async function main() {
     return;
   }
 
+  if (command === 'upgrade') {
+    await upgrade({ locale });
+    return;
+  }
+
   printHelp();
 }
 
@@ -25,6 +30,7 @@ function printHelp() {
   console.log(chalk.yellow(`
 Usage:
   npx spec-driven-codex init [--locale ja]
+  npx spec-driven-codex upgrade [--locale ja]
 `));
 }
 

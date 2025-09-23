@@ -1,8 +1,10 @@
 # spec-driven-codex
 
-A lightweight, specification-driven development workflow tailored for the Codex CLI. Run `npx spec-driven-codex init` to scaffold the `.sdd` workspace and install Codex prompts that guide you from discovery to delivery.
+A lightweight, specification-driven development workflow tailored for the Codex CLI. Run `npx spec-driven-codex init` to scaffold the `.sdd` workspace and install Codex prompts that guide you from discovery to delivery. Use `npx spec-driven-codex upgrade` any time you need to refresh the prompts with the latest templates.
 
 - **Single command setup** – `init` bootstraps everything you need
+- **Safe re-runs** – existing Codex prompts are kept as-is while `.sdd/README.md` is refreshed every run
+- **One-step upgrades** – `upgrade` force-installs the latest prompt copies and refreshes `.sdd/README.md`
 - **Codex-ready prompts** – English by default, Japanese with `--locale ja`
 - **Always in sync** – Spec artifacts live under `.sdd/` for the entire flow
 
@@ -28,11 +30,18 @@ Pass `--locale ja` to `init` if you prefer Japanese templates and prompts:
 npx spec-driven-codex init --locale ja
 ```
 
+To refresh the prompt templates later on, run:
+
+```bash
+npx spec-driven-codex upgrade
+```
+
 ## CLI Command
 
 | Command | Description |
 | --- | --- |
-| `npx spec-driven-codex init [--locale ja]` | Creates `.sdd/` scaffolding, localized templates, and installs Codex prompts (with overwrite confirmation). |
+| `npx spec-driven-codex init [--locale ja]` | Creates `.sdd/` scaffolding, localized templates, installs Codex prompts (existing prompt files are left untouched) and always refreshes `.sdd/README.md`. |
+| `npx spec-driven-codex upgrade [--locale ja]` | Force-installs the latest Codex prompt templates into `~/.codex/prompts` (overwrites without confirmation) and refreshes `.sdd/README.md`. |
 
 ## Codex CLI Prompts
 
