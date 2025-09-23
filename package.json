@@ -1,6 +1,6 @@
 {
   "name": "spec-driven-codex",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Simple specification-driven development workflow for Codex CLI",
   "main": "lib/index.js",
   "bin": {
