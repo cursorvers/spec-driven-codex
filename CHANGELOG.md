@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.0] - 2025-09-24
+## [1.0.1] - 2025-09-24
 ### Changed
 - Documented that `.sdd/description.md` must be updated before running `/sdd-requirements` across README guides and distributed templates.
 
