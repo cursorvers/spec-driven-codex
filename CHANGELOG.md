@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2025-09-27
+
+### Added
+- `/sdd-highway` prompt for fast-tracking design, task planning, and implementation once requirements are approved.
+
+### Changed
+- `/sdd-requirements` completion messaging and SDD flow documentation (README, INTRODUCTION, `.sdd/README.md`) now highlight the highway route as an optional next step.
+
+### Technical Notes
+- Updated initialization and upgrade tests to exercise the additional prompt distribution.
+
 ## [1.1.0] - 2025-09-27
 
 ### Changed
