@@ -1,0 +1,5 @@
+- [x] データモデル: `templates/<locale>/prompts/` に `sdd-highway.md` を追加し、内容を最終チェックする（英語・日本語両方、design.md「主要コンポーネント」該当）
+- [x] ビジネスロジック: `test/init.test.js` の期待値を更新し、新プロンプト配布・スキップ・上書きのケースで `sdd-highway.md` をカバーする（design.md「主要コンポーネント」「既存コード統合」参照）
+- [x] インターフェース: `README.md` / `README.ja.md` / `.sdd/README.md` / `INTRODUCTION.md` / `INTRODUCTION.ja.md` のコマンド一覧・手順に `/sdd-highway` を追記し、英日整合性を保つ（design.md「既存コード統合」参照）
+- [x] テスト: `init` と `upgrade` の実行を `npm test` で検証し、必要なら追加テストを作成（design.md「エラーハンドリング」「既存コード統合」参照）
+- [x] 完了メッセージ: `/sdd-requirements` の完了テンプレート（英語・日本語）に高速ルート案内を追加し、文面を調整する（design.md「既存コード統合」参照）
