@@ -24,7 +24,7 @@ Following the natural flow of requirements → design → implementation, humans
 
 By inserting human approval at each phase, you can maximize AI productivity while preventing directional drift.
 
-## Development Flow in 6 Steps
+## Development Flow in 6 Steps (with an Optional Highway)
 
 ### 1. **Steering** `/sdd-steering`
 Understand the overall picture of existing projects and automatically generate three foundational documents:
@@ -34,6 +34,9 @@ Understand the overall picture of existing projects and automatically generate t
 
 ### 2. **Requirements** `/sdd-requirements`
 Clarify feature requirements and acceptance criteria. Prevent ambiguous definitions of "done."
+
+**Optional Highway** `/sdd-highway`
+Let the CLI chain `/sdd-design`, `/sdd-tasks`, and `/sdd-implement` automatically when the requirements are ready. Choose this fast lane when you want to stay focused on discovery while Codex executes the build.
 
 ### 3. **Design** `/sdd-design`
 Design architecture, data flow, and error handling. Clearly document integration with existing code.
@@ -59,7 +62,7 @@ npx spec-driven-codex init --locale ja
 
 With just one command, the following is automatically prepared:
 - Generation of `.sdd/` directory structure
-- Placement of Codex CLI prompts (6 files)
+- Placement of Codex CLI prompts (7 files)
 - Creation of feature description templates
 
 Works immediately with both existing and new projects.
@@ -93,10 +96,11 @@ echo "Add user authentication feature" > .sdd/description.md
 
 # Progress through development flow
 > /sdd-requirements  # Define requirements
-> /sdd-design       # Create design
-> /sdd-tasks        # Break into tasks
-> /sdd-implement    # Implement
-> /sdd-archive      # Complete!
+> /sdd-highway       # Optional: fast lane for design -> tasks -> implementation
+> /sdd-design        # Create design (skip if highway already ran)
+> /sdd-tasks         # Break into tasks (skip if highway already ran)
+> /sdd-implement     # Implement (skip if highway already ran)
+> /sdd-archive       # Complete!
 ```
 
 Codex CLI guides you through each step, so you won't get lost.

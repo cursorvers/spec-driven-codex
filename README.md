@@ -18,11 +18,14 @@ npx spec-driven-codex init
 codex
 > /sdd-steering
 > /sdd-requirements
+> /sdd-highway      # optional fast lane for design -> tasks -> implementation
 > /sdd-design
 > /sdd-tasks
 > /sdd-implement
 > /sdd-archive
 ```
+
+Skip the manual `/sdd-design`, `/sdd-tasks`, and `/sdd-implement` entries if you already ran `/sdd-highway`.
 
 Pass `--locale ja` to `init` if you prefer Japanese templates and prompts:
 
@@ -49,6 +52,7 @@ Once the workspace is initialized, run the Codex CLI prompts in sequence to prog
 
 - `/sdd-steering` — Capture product context, stakeholders, and risks.
 - `/sdd-requirements` — Define requirements and acceptance criteria. Update `.sdd/description.md` with the problem and feature summary before running this prompt so the requirements stay grounded in the latest context.
+- `/sdd-highway` — Optional fast lane that triggers `/sdd-design`, `/sdd-tasks`, and `/sdd-implement` back-to-back.
 - `/sdd-design` — Document architecture and implementation strategy.
 - `/sdd-tasks` — Break the design into actionable tasks.
 - `/sdd-implement` — Implement every task with tests and refactors.
@@ -72,6 +76,7 @@ project/
 └── ~/.codex/prompts/
     ├── sdd-steering.md
     ├── sdd-requirements.md
+    ├── sdd-highway.md
     ├── sdd-design.md
     ├── sdd-tasks.md
     ├── sdd-implement.md

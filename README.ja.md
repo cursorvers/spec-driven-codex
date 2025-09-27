@@ -26,11 +26,15 @@ npx spec-driven-codex init
 codex
 > /sdd-steering
 > /sdd-requirements
+> /sdd-highway
 > /sdd-design
 > /sdd-tasks
 > /sdd-implement
 > /sdd-archive
 ```
+
+`/sdd-highway` は要件定義後に設計->タスク->実装までを一気に進める高速ルートです。
+利用した場合は `/sdd-design`・`/sdd-tasks`・`/sdd-implement` の個別実行をスキップできます。
 
 テンプレートを後から更新したい場合は次を実行します。
 
@@ -55,6 +59,7 @@ Codex CLIはコマンドを実行する前に、これから行う作業計画�
 
 - `/sdd-steering` — プロジェクト全体のコンテキストを把握し、関係者や現状の課題を整理します。
 - `/sdd-requirements` — 実装する機能の要求と受け入れ条件を明確化します。実行前に `.sdd/description.md` を最新の課題・機能概要で更新し、要件定義を最新コンテキストと揃えてください。
+- `/sdd-highway` — `/sdd-design`、`/sdd-tasks`、`/sdd-implement` を連続実行する高速ルートです。
 - `/sdd-design` — 要求を満たすための設計方針や技術的な選択肢をまとめます。
 - `/sdd-tasks` — 実装に必要なタスクを洗い出し、担当や順序を決めます。
 - `/sdd-implement` — タスクを順番に実行し、テスト・リファクタリングも含めて完了させます。
@@ -77,6 +82,7 @@ Codex CLIはコマンドを実行する前に、これから行う作業計画�
 └── ~/.codex/prompts/
     ├── sdd-steering.md
     ├── sdd-requirements.md
+    ├── sdd-highway.md
     ├── sdd-design.md
     ├── sdd-tasks.md
     ├── sdd-implement.md
