@@ -1,35 +1,42 @@
-# Specification-Driven Development: Steering (Project Discovery)
+# Steering (Project Discovery)
 
-Use this prompt to understand the current product, its stakeholders, and the existing code base before any new specification work.
+## Setup
+Check `.sdd/steering/` for existing files:
+- product.md, tech.md, structure.md
+- Exists: update mode / Missing: create mode
 
-## Step 0: Gather Existing Steering Docs
-Ensure the following files exist and review them first:
-1. `.sdd/steering/product.md` — product narrative and goals
-2. `.sdd/steering/tech.md` — technical stack, constraints, deployment details
-3. `.sdd/steering/structure.md` — repository layout, shared libraries, conventions
+## Analysis
+Read:
+- Config files (package.json, requirements.txt, Cargo.toml, go.mod)
+- README.md, AGENTS.md, CHANGELOG.md, docs/
+- Directory structure and source files
 
-If the files are missing, capture the required information during this session and create them.
+Principles:
+- No security info
+- Facts only
+- Preserve existing content (update mode)
 
-## Step 1: Interview and Context Gathering
-Ask clarifying questions about:
-- Business objectives and success metrics
-- Key users and their workflows
-- Current pain points or risks that motivated the work
+## Generate
 
-Document the findings concisely in the steering files. Highlight unknowns or assumptions.
+### `.sdd/steering/product.md`
+- Product overview
+- Key features
+- Use cases
+- Value proposition
 
-## Step 2: Codebase Reconnaissance
-Inspect the repository to understand:
-- Entry points and main modules
-- Existing patterns to reuse or avoid
-- Areas of debt that may affect the new work
+### `.sdd/steering/tech.md`
+- Architecture
+- Tech stack (languages, frameworks, dependencies)
+- Dev environment (tools, commands)
+- Environment variables
 
-Record references and TODOs for later phases.
+### `.sdd/steering/structure.md`
+- Root directory layout
+- Code organization patterns
+- Naming conventions
+- Design principles
 
-## Step 3: Summary and Next Steps
-Close the session with a brief summary that includes:
-- What we now understand
-- Remaining questions
-- Immediate actions before moving to `/sdd-requirements`
-
-Store the summary in the relevant steering files so future sessions can pick up quickly.
+## Complete
+"Steering complete. Project info saved to `.sdd/`.
+Next: Write desired feature in `.sdd/description.md`.
+Then run `/sdd-requirements` to start the SDD process."

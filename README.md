@@ -1,4 +1,4 @@
-# spec-driven-codex
+# Spec Driven Codex
 
 A lightweight, specification-driven development workflow tailored for the Codex CLI. Run `npx spec-driven-codex init` to scaffold the `.sdd` workspace and install Codex prompts that guide you from discovery to delivery. Use `npx spec-driven-codex upgrade` any time you need to refresh the prompts with the latest templates.
 

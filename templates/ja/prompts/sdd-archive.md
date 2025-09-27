@@ -1,24 +1,16 @@
-# 仕様駆動開発：アーカイブ
+# アーカイブ
 
-## ステップ1：対象specの確認
-1. `.sdd/target-spec.txt` を読み込み、spec名を取得
-2. `.sdd/specs/[spec名]/tasks.md` を読み込み
-3. すべてのタスクが [x] になっているか確認
+## 確認
+1. `.sdd/target-spec.txt` からspec名取得
+2. `.sdd/specs/[spec名]/tasks.md` の全タスクが [x] か確認
+   未完了時: 「未完了タスクあり。完了後に再実行してください」
 
-完了していない場合：
-「未完了のタスクがあります。
-すべてのタスクを完了してからアーカイブしてください。
-または強制的にアーカイブする場合は、手動で
-.sdd/specs/[spec名]/ を .sdd/specs/archives/ に移動してください」
+## 実行
+1. `.sdd/specs/archives/` 作成（不在時）
+2. `.sdd/specs/[spec名]/` → `.sdd/specs/archives/YYYYMMDD_[spec名]/` 移動
+3. `.sdd/target-spec.txt` クリア
 
-## ステップ2：アーカイブ実行
-すべて完了している場合：
-1. `.sdd/specs/archives/` ディレクトリを作成（なければ）
-2. 現在の日付を取得（YYYYMMDD形式）
-3. `.sdd/specs/[spec名]/` を `.sdd/specs/archives/YYYYMMDD_[spec名]/` に移動
-4. `.sdd/target-spec.txt` の内容をクリア（空にする）
-
-## ステップ3：完了報告
+## 完了
 「spec '[spec名]' をアーカイブしました。
 保存先：.sdd/specs/archives/YYYYMMDD_[spec名]/
 
