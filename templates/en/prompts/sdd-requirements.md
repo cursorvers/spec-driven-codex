@@ -15,11 +15,11 @@
 3. Read steering files
 
 ## Execute
-Create `.sdd/specs/[spec-name]/requirements.md`:
+Create `.sdd/specs/[spec-name]/requirements.md` (without timestamps) including:
 - Feature overview (from description.md)
 - User stories
 - Functional requirements with acceptance criteria
 - Non-functional requirements (if needed)
 
 Complete:
-"Requirements complete. Review content, then run `/sdd-design`."
+"Requirements complete. Review content, then run `/sdd-design` or choose `/sdd-highway` to fast-track design, tasks, and implementation."

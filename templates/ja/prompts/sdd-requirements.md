@@ -15,11 +15,11 @@
 3. ステアリング読込
 
 ## 実行
-`.sdd/specs/[spec名]/requirements.md` 作成:
+`.sdd/specs/[spec名]/requirements.md` (タイムスタンプ無し) を作成し、以下を含む:
 - 機能概要（description.md基準）
 - ユーザーストーリー
 - 機能要件と受入基準
 - 非機能要件（必要時）
 
 完了:
-「要件定義完了。内容を確認して、次は `/sdd-design` を実行してください」
+「要件定義完了。内容を確認したら `/sdd-design` へ進むか、設計から実装まで一気に進めたい場合は `/sdd-highway` を実行してください」

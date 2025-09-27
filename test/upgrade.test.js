@@ -38,6 +38,8 @@ test('upgrade overwrites all prompt files in English locale', async () => {
   const templateContent = await fs.readFile(templateFile, 'utf8');
   assert.equal(updated, templateContent);
   const promptFiles = await fs.readdir(codexPromptsDir);
+  assert.ok(promptFiles.includes('sdd-highway.md'));
+  assert.equal(new Set(promptFiles).size, 7);
   assert.equal(result.prompts.overwritten.length, new Set(promptFiles).size);
   const readmeUpdated = await fs.readFile(sddReadmePath, 'utf8');
   assert.equal(readmeUpdated, sddReadmeTemplate);

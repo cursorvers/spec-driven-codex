@@ -36,8 +36,9 @@ test('init creates .sdd structure and copies prompts', async () => {
   assert.ok(await fs.pathExists(path.join(projectDir, '.sdd', 'specs')));
 
   const promptFiles = await fs.readdir(codexPromptsDir);
-  assert.deepEqual(new Set(promptFiles).size, 6);
-  assert.equal(result.prompts.installed.length, 6);
+  assert.deepEqual(new Set(promptFiles).size, 7);
+  assert.ok(promptFiles.includes('sdd-highway.md'));
+  assert.equal(result.prompts.installed.length, 7);
   assert.equal(result.created.sddReadme, true);
 });
 
@@ -136,5 +137,6 @@ test('init supports Japanese locale', async () => {
   assert.match(readmeContent, /コマンド/);
   const promptDir = path.join(homeDir, '.codex', 'prompts');
   const promptFiles = await fs.readdir(promptDir);
-  assert.deepEqual(new Set(promptFiles).size, 6);
+  assert.deepEqual(new Set(promptFiles).size, 7);
+  assert.ok(promptFiles.includes('sdd-highway.md'));
 });
