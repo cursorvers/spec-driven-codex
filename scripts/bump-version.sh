@@ -17,6 +17,13 @@ if [[ ! "$CURRENT_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   exit 1
 fi
 
+# Check if version already exists as a git tag
+if git rev-parse "v$CURRENT_VERSION" >/dev/null 2>&1; then
+  echo "✖ Version v$CURRENT_VERSION already exists as a git tag." >&2
+  echo "Please update scripts/version.txt to a new version." >&2
+  exit 1
+fi
+
 # Git branch validation
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 if [[ "$BRANCH" != "main" ]]; then
@@ -44,35 +51,15 @@ git add package.json package-lock.json 2>/dev/null || git add package.json
 git commit -m "chore: release v$CURRENT_VERSION"
 git tag "v$CURRENT_VERSION"
 
-# Push with confirmation
-echo ""
-echo "📋 Release Summary:"
-echo "  Version: $CURRENT_VERSION"
-echo "  Tag: v$CURRENT_VERSION"
-echo "  Branch: $BRANCH"
-echo ""
-read -p "Push to remote repository? [y/N]: " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "✔ Pushing commits and tags to origin/main..."
-  git push origin main --follow-tags
-  echo "✅ Git operations complete."
-else
-  echo "⏸️ Git push skipped. Run manually: git push origin main --follow-tags"
-  exit 0
-fi
+# Push to remote
+echo "✔ Pushing commits and tags to origin/main..."
+git push origin main --follow-tags
+echo "✅ Git operations complete."
 
-# Publish to npm with confirmation
-echo ""
-read -p "Publish to npm? [y/N]: " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "✔ Publishing to npm..."
-  npm publish --access public
-  echo "🎉 Release v$CURRENT_VERSION published successfully!"
-else
-  echo "⏸️ npm publish skipped. Run manually: npm publish --access public"
-fi
+# Publish to npm
+echo "✔ Publishing to npm..."
+npm publish --access public
+echo "🎉 Release v$CURRENT_VERSION published successfully!"
 
 echo ""
 echo "🎯 Next steps:"
