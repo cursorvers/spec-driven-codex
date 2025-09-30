@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2025-09-30
+
+### Changed
+- **Reverted**: Restored all SDD command prompts to their v1.0.1 state to prioritize deliberate, user-approved workflows
+  - Reverted `/sdd-steering`, `/sdd-requirements`, `/sdd-design`, `/sdd-tasks`, `/sdd-implement`, and `/sdd-archive` to detailed templates
+  - Maintained `/sdd-highway` fast-track workflow introduced in v1.2.0
+- The v1.1.0 optimizations inadvertently caused unintended behaviors that conflicted with the core specification-driven development philosophy
+- Specification-driven development emphasizes step-by-step planning with explicit user approval at each stage
+- The detailed prompts better support this methodical, approval-gated approach
+
+### Rationale
+The v1.1.0 "less is more" approach, while token-efficient, reduced the deliberate pacing and explicit approval checkpoints that are fundamental to specification-driven workflows. This version restores the balance between efficiency and control, allowing users to choose between the highway mode (fast) and the standard flow (deliberate).
+
 ## [1.2.0] - 2025-09-27
 
 ### Added

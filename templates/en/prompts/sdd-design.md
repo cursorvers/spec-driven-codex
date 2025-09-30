@@ -1,22 +1,24 @@
-# Design
+# Specification-Driven Development: Design
 
-## Setup
-1. Get spec name from `.sdd/target-spec.txt`
-2. Verify `.sdd/specs/[spec-name]/` exists
-   Missing: show available specs and guide
-3. Read steering files
+Translate the approved requirements into an actionable technical plan.
 
-## Execute
-1. Read `.sdd/specs/[spec-name]/requirements.md`
-   Missing: "Requirements needed. Run `/sdd-requirements` first."
+## Step 1: Review Requirements
+Quickly revisit `.sdd/specs/<spec-name>/requirements.md` and ensure all questions are resolved. If not, loop back to `/sdd-requirements`.
 
-2. Create `.sdd/specs/[spec-name]/design.md`:
-   - Architecture integration
-   - Major components (responsibilities, I/O, dependencies)
-   - Data models
-   - Processing flow
-   - Error handling
-   - Existing code integration (changes/new files)
+## Step 2: Architecture & Approach
+Discuss and document:
+- System boundaries and data flow
+- Chosen patterns, libraries, or frameworks
+- Alternative approaches considered and why they were rejected
 
-Complete:
-"Design complete. Review content, then run `/sdd-tasks` to create implementation tasks."
+## Step 3: Risks & Mitigations
+List the main technical risks, ambiguity, or debt and how you plan to mitigate them.
+
+## Step 4: Deliverables
+Create `.sdd/specs/<spec-name>/design.md` covering:
+- Architecture overview (diagrams optional)
+- Data models or API contracts
+- Testing strategy (unit, integration, end-to-end)
+- Deployment or migration considerations
+
+Ensure the team agrees on the design before moving to `/sdd-tasks`.

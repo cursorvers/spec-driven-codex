@@ -1,23 +1,24 @@
-# Implementation
+# Specification-Driven Development: Implementation
 
-## Setup
-1. Get spec name from `.sdd/target-spec.txt`
-2. Verify `.sdd/specs/[spec-name]/` exists
-3. Read steering files
+Execute the planned tasks, keep tests green, and document outcomes.
 
-## Execute
-1. Read spec documents:
-   - requirements.md
-   - design.md
-   - tasks.md
+## Step 1: Implementation Loop
+Work through the entire task list in order. For each task:
+1. Write or update tests (RED).
+2. Implement the minimal code to pass them (GREEN).
+3. Refactor for clarity while keeping tests passing (REFACTOR).
 
-2. Execute tasks sequentially:
-   - Write test first (RED)
-   - Minimal implementation to pass (GREEN)
-   - Refactor for quality (REFACTOR)
-   - Update checkbox in tasks.md: `- [x]`
+Record progress in commit messages and keep changes small and reviewable. Do not skip items—every task in `tasks.md` should reach "done" before completing this phase.
 
-3. Complete:
-   - Verify all tests pass
-   - Update documentation
-   - "Complete. Run `/sdd-archive` to close spec."
+## Step 2: Quality Checklist
+Before declaring the task complete, ensure:
+- Tests cover success and failure paths
+- Linting passes (`npm run lint`)
+- No secrets or credentials are hard-coded
+- Documentation or comments are updated if necessary
+
+## Step 3: Update Spec Artifacts
+Capture notable decisions or deviations in the relevant spec files. If the design changed, reflect it in `/sdd-design`.
+
+## Step 4: Handoff
+Prepare for review by summarizing what changed, how it was tested, and any follow-up work. Then proceed to `/sdd-archive`.

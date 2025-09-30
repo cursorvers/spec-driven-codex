@@ -1,21 +1,23 @@
-# Task Breakdown
+# Specification-Driven Development: Task Breakdown
 
-## Setup
-1. Get spec name from `.sdd/target-spec.txt`
-2. Verify `.sdd/specs/[spec-name]/` exists
-   Missing: show available specs and guide
-3. Read steering files
+Break the design into a prioritized set of tasks that can be implemented iteratively.
 
-## Execute
-1. Read:
-   - `.sdd/specs/[spec-name]/requirements.md`
-   - `.sdd/specs/[spec-name]/design.md`
+## Step 1: Input Review
+Use the latest design document as the primary source. Confirm that each design section has a corresponding set of tasks.
 
-2. Create `.sdd/specs/[spec-name]/tasks.md`:
-   - Break into 1-3 hour tasks
-   - Order: Data Model → Business Logic → Interface → Test
-   - Map to design.md sections
-   - Checkbox format: `- [ ] Task description`
+## Step 2: Task List Creation
+For each functional area, capture tasks that include:
+- A concise title and objective
+- Relevant files or modules to touch
+- Clear definition of done, including tests
 
-Complete:
-"Task list complete. Run `/sdd-implement` to start implementation."
+## Step 3: Sequencing and Ownership
+Assign owners if known and suggest an order of execution. Highlight tasks that can proceed in parallel and dependencies between them.
+
+## Step 4: Output
+Produce `.sdd/specs/<spec-name>/tasks.md` with:
+- Task table or bullet list
+- Links to design sections or related documents
+- Notes about potential blockers
+
+Use this document as the source of truth during `/sdd-implement`.
