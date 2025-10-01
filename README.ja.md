@@ -1,12 +1,14 @@
 # Spec Driven Codex
 
-シンプルで強力な、Codex CLI用の仕様駆動開発フレームワークです。デフォルトは英語テンプレートですが、`--locale ja` オプションで日本語版をインストールできます。テンプレートを最新化したいときは `npx spec-driven-codex upgrade` を実行してください。
+シンプルで強力な、Codex CLI用の仕様駆動開発フレームワークです。デフォルトは英語テンプレートですが、`--locale ja` オプションで日本語版をインストールできます。テンプレートを最新化したいときは `npx spec-driven-codex upgrade --locale ja` を実行してください。
 
 ```bash
 npx spec-driven-codex init --locale ja
 ```
 
 と実行すると `.sdd/` 配下のテンプレートと Codex プロンプトが日本語になります。
+
+詳しい仕様駆動開発フローの説明は [INTRODUCTION.ja.md](./INTRODUCTION.ja.md) を参照してください。
 
 使い方がわかる動画も公開しています。
 
