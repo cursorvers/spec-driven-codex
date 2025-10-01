@@ -8,6 +8,10 @@ npx spec-driven-codex init --locale ja
 
 と実行すると `.sdd/` 配下のテンプレートと Codex プロンプトが日本語になります。
 
+使い方がわかる動画も公開しています。
+
+https://www.youtube.com/watch?v=1EQllS_3TJo
+
 ## ✨ 特徴
 
 - **シンプル**: `init` コマンド一つでセットアップ完了

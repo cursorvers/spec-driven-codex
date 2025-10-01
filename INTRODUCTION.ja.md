@@ -6,6 +6,10 @@
 複雑な設定は不要。
 `npx spec-driven-codex init` を実行するだけで、体系的な開発プロセスがあなたのプロジェクトに導入されます。
 
+使い方がわかる動画も公開しています。
+
+[!['使い方動画'](./assets/youtube.png)](https://www.youtube.com/watch?v=1EQllS_3TJo)
+
 ## なぜ仕様駆動開発なのか
 
 AIペアプログラミングが当たり前になった今、新たな課題が生まれています。
