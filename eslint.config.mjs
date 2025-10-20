@@ -6,13 +6,12 @@ export default [
   js.configs.recommended,
   pluginSecurity.configs.recommended,
   {
+    files: ['**/*.js', '**/*.mjs', 'tests/**/*.mjs'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: { ...globals.node }
     },
-    rules: {
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }]
-    }
+    rules: { 'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }] }
   }
 ];
